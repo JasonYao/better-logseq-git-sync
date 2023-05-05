@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+output=$(git pull --rebase origin main)
+
+if [ "$output" = "Already up to date." ]; then
+    # no output
+    :
+else
+    # probably error print it to screen
+    echo "${output}"
+fi
+
+git add -A
+
