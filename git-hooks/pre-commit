@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-output=$(git pull --rebase origin main)
+output=$(git pull --rebase origin main 2>&1)
 
-if [ "$output" = "Already up to date." ]; then
+if [[ "${output}" =~ "Already up to date" ]]; then
     # no output
     :
 else
-    # probably error print it to screen
+    # Adds all stdout and stderr output to the screen
     echo "${output}"
 fi
 
